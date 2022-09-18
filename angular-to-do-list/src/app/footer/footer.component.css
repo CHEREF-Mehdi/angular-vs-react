@@ -1,0 +1,12 @@
+.footer {
+  width: 80%;
+  padding: 3%;
+  background-color: green;
+  margin-top: 5%;
+  position: fixed;
+  bottom: 0px;
+}
+
+.bgcolorgree {
+  background-color: yellowgreen;
+}

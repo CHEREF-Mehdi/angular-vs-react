@@ -1,0 +1,4 @@
+<h1>Angular application</h1>
+<app-header (toggleFooterEvt)="toggleFooter()"> </app-header>
+
+<app-footer #footer [footerText]="footerText" *ngIf="showFooter"></app-footer>
