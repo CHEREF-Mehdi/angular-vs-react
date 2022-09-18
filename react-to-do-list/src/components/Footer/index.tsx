@@ -20,7 +20,7 @@ export default class Footer extends Component<IFooterProps> {
   }
 
   componentDidUpdate() {
-    console.log("I'm from getSnapshotBeforeUpdate()");
+    console.log("I'm from componentDidUpdate()");
   }
 
   componentWillUnmount() {

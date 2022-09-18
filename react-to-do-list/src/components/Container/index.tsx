@@ -8,7 +8,8 @@ interface IContainerState {
 
 export default class Container extends Component<{}, IContainerState> {
   footerText = "I'm the Footer!";
-  
+  timeOutId: NodeJS.Timeout | undefined = undefined;
+
   constructor(props: any) {
     super(props);
 
@@ -16,11 +17,11 @@ export default class Container extends Component<{}, IContainerState> {
       showFooter: false,
     };
 
-    setTimeout(() => {
-        console.log("updating footerText");
-        
-        this.footerText="Hello!! I have just changed the my message";
-    }, 7000);
+    this.timeOutId = setTimeout(() => {
+      //console.log('updating footerText');
+
+      this.footerText = 'Hello!! I have just changed my message';
+    }, 15000);
 
     //this.toggleFooter = this.toggleFooter.bind(this);
   }
@@ -32,6 +33,10 @@ export default class Container extends Component<{}, IContainerState> {
   toggleFooter = () => {
     this.setState((prevState) => ({ showFooter: !prevState.showFooter }));
   };
+
+  componentWillUnmount() {
+    clearTimeout(this.timeOutId);
+  }
 
   render() {
     return (
