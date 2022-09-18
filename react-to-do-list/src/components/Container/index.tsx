@@ -18,8 +18,8 @@ export const ContainerFC: React.FC = () => {
     timeOutID = setTimeout(() => {
       //console.log('trying to update footerText');
 
-      footerText = 'Hello!! I have just changed the my message';
-    }, 7000);
+      footerText = 'Hello!! I have just changed my message';
+    }, 10000);
 
     return () => {
       clearTimeout(timeOutID);
@@ -52,8 +52,8 @@ export default class Container extends Component<{}, IContainerState> {
     this.timeOutID = setTimeout(() => {
       //console.log('updating footerText');
 
-      this.footerText = 'Hello!! I have just changed the my message';
-    }, 7000);
+      this.footerText = 'Hello!! I have just changed my message';
+    }, 10000);
 
     //this.toggleFooter = this.toggleFooter.bind(this);
   }

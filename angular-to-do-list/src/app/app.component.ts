@@ -7,7 +7,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'angular-to-do-list';
-  timeOutID: NodeJS.Timeout | undefined = undefined;
+  timeOutID: any | undefined = undefined;
   showFooter = false;
   footerText = "I'm the footer!";
 
@@ -15,15 +15,15 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timeOutID = setTimeout(() => {
       //console.log('updating footerText');
 
-      this.footerText = 'Hello!! I have just changed the my message';
-    }, 7000);
-  }
-
-  ngOnDestroy(): void {
-    clearTimeout(this.timeOutID);
+      this.footerText = 'Hello!! I have just changed my message';
+    }, 10000);
   }
 
   toggleFooter() {
     this.showFooter = !this.showFooter;
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.timeOutID);
   }
 }
