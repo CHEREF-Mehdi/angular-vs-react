@@ -52,7 +52,7 @@ export const ToDoList: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       {toDoList.map((item, key) => (
         <div className='card' key={key}>
           <div className={`card-body ${key % 2 ? 'bg-info' : 'bg-secondary'}`}>
