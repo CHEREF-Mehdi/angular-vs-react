@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import Footer, { FooterFC } from '../Footer';
-import Header, { HeaderFC } from '../Header';
+import * as React from 'react';
+import { FooterFC } from '../Footer';
+import { HeaderFC } from '../Header';
+import { ToDoList } from '../ToDoList';
 
 interface IContainerState {
   showFooter: boolean;
@@ -32,52 +33,9 @@ export const ContainerFC: React.FC = () => {
 
   return (
     <div>
-      <HeaderFC toggleFooter={toggleFooter}></HeaderFC>
-      {state.showFooter && <FooterFC footerText={footerText}></FooterFC>}
+      <HeaderFC toggleFooter={toggleFooter} />
+      <ToDoList />
+      {state.showFooter && <FooterFC footerText={footerText} />}
     </div>
   );
 };
-
-export default class Container extends Component<{}, IContainerState> {
-  footerText = "I'm the Footer!";
-  timeOutID: NodeJS.Timeout | undefined = undefined;
-
-  constructor(props: any) {
-    super(props);
-
-    this.state = {
-      showFooter: false,
-    };
-
-    this.timeOutID = setTimeout(() => {
-      //console.log('updating footerText');
-
-      this.footerText = 'Hello!! I have just changed my message';
-    }, 10000);
-
-    //this.toggleFooter = this.toggleFooter.bind(this);
-  }
-
-  //   toggleFooter() {
-  //     this.setState((prevState) => ({ showFooter: !prevState.showFooter }));
-  //   }
-
-  toggleFooter = () => {
-    this.setState((prevState) => ({ showFooter: !prevState.showFooter }));
-  };
-
-  componentWillUnmount() {
-    clearTimeout(this.timeOutID);
-  }
-
-  render() {
-    return (
-      <div>
-        <Header toggleFooter={this.toggleFooter}></Header>
-        {this.state.showFooter && (
-          <Footer footerText={this.footerText}></Footer>
-        )}
-      </div>
-    );
-  }
-}

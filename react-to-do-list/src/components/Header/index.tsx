@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import './styles.css';
 
 interface IHeaderProps {
@@ -23,27 +23,3 @@ export const HeaderFC: React.FC<IHeaderProps> = ({ toggleFooter }) => {
     </div>
   );
 };
-
-export default class Header extends Component<IHeaderProps> {
-  render() {
-    return (
-      <div className='bgcolorgree jumbotron jumbotron-fluid'>
-        <div className='container row'>
-          <div className='col-md-8'>
-            <h1 className='display-4'>TO DO LIST</h1>
-          </div>
-          <div className='col-md-4'>
-            <p>
-              <button
-                className='btn btn-primary'
-                onClick={this.props.toggleFooter}
-              >
-                Toggle Footer
-              </button>
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}

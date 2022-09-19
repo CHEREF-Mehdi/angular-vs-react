@@ -1,0 +1,21 @@
+<div
+  class="container"
+  *ngFor="let item of toDoListMapped; let odd = odd; let even = even; let index= index"
+>
+  <div class="card">
+    <div class="card-body" [ngClass]="{ 'bg-info': odd, 'bg-secondary': even }">
+      <div class="row">
+        <div class="col-md-10">{{ item }}</div>
+        <div class="col-md-1">
+          <button
+            type="button"
+            (click)="removeItem(index)"
+            class="btn btn-danger"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
